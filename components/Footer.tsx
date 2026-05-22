@@ -18,25 +18,25 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed max-w-sm">
-              The ultimate destination for anime streaming. Watch your favorite anime in high quality, 
-              completely free. Keep track of your watch list and never miss an update.
+              Destinasi terbaik untuk streaming anime. Tonton anime favorit Anda dalam kualitas tinggi, 
+              sepenuhnya gratis. Pantau daftar tontonan Anda dan jangan pernah melewatkan pembaruan.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-bold mb-6">Quick Links</h4>
+            <h4 className="text-white font-bold mb-6">Tautan Cepat</h4>
             <ul className="space-y-4 text-sm text-white/60">
-              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-              <li><Link href="/schedule" className="hover:text-primary transition-colors">Schedule</Link></li>
-              <li><Link href="/genres" className="hover:text-primary transition-colors">Genres</Link></li>
-              <li><Link href="/search" className="hover:text-primary transition-colors">Search</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">Beranda</Link></li>
+              <li><Link href="/schedule" className="hover:text-primary transition-colors">Jadwal</Link></li>
+              <li><Link href="/genres" className="hover:text-primary transition-colors">Genre</Link></li>
+              <li><Link href="/search" className="hover:text-primary transition-colors">Cari</Link></li>
             </ul>
           </div>
 
           {/* Social */}
           <div>
-            <h4 className="text-white font-bold mb-6">Connect</h4>
+            <h4 className="text-white font-bold mb-6">Ikuti Kami</h4>
             <div className="flex gap-4">
               <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-primary/20 hover:text-primary transition-all">
                 <Globe size={20} />
@@ -54,11 +54,11 @@ const Footer = () => {
 
         <div className="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/30 text-xs">
-            © 2026 JASZNIME. All rights reserved.
+            © 2026 JASZNIME. Hak cipta dilindungi undang-undang.
           </p>
           <div className="flex gap-6 text-xs text-white/30">
-            <Link href="#" className="hover:text-white/60">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white/60">Terms of Service</Link>
+            <Link href="#" className="hover:text-white/60">Kebijakan Privasi</Link>
+            <Link href="#" className="hover:text-white/60">Syarat dan Ketentuan</Link>
           </div>
         </div>
       </div>

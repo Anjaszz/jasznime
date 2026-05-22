@@ -5,6 +5,7 @@ import { getWatch, WatchResponse } from '@/lib/api';
 import { useParams } from 'next/navigation';
 import { Play, Download, Server, ChevronLeft, ChevronRight, Share2, Info } from 'lucide-react';
 import Link from 'next/link';
+import { updateEpisodeInHistory } from '@/lib/history';
 
 export default function WatchPage() {
   const { slug } = useParams();
@@ -19,6 +20,7 @@ export default function WatchPage() {
         .then((res) => {
           if (res.status === 'success') {
             setData(res.data);
+            updateEpisodeInHistory(slug as string, res.data.title);
           }
           setLoading(false);
         })
@@ -30,7 +32,7 @@ export default function WatchPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[70vh] gap-4">
         <span className="loading loading-spinner loading-lg text-primary"></span>
-        <p className="text-white/50 animate-pulse font-medium">Preparing your stream...</p>
+        <p className="text-white/50 animate-pulse font-medium">Menyiapkan streaming Anda...</p>
       </div>
     );
   }
@@ -38,8 +40,8 @@ export default function WatchPage() {
   if (!data) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[70vh] gap-4">
-        <p className="text-xl text-white/50">Failed to load stream. Please try again.</p>
-        <Link href="/" className="btn btn-primary">Back to Home</Link>
+        <p className="text-xl text-white/50">Gagal memuat streaming. Silakan coba lagi.</p>
+        <Link href="/" className="btn btn-primary">Kembali ke Beranda</Link>
       </div>
     );
   }
@@ -51,7 +53,7 @@ export default function WatchPage() {
         <div className="lg:col-span-3 space-y-6">
           {/* Breadcrumbs */}
           <div className="flex items-center gap-2 text-xs text-white/50 mb-2 uppercase tracking-widest font-bold">
-            <Link href="/" className="hover:text-primary">Home</Link>
+            <Link href="/" className="hover:text-primary">Beranda</Link>
             <ChevronRight size={12} />
             <span className="text-white/80 line-clamp-1">{data.title}</span>
           </div>
@@ -81,7 +83,7 @@ export default function WatchPage() {
                   href={`/watch/${data.prev_episode}`}
                   className="bg-base-300 hover:bg-primary px-4 py-3 rounded-xl flex items-center gap-2 font-bold transition-all text-sm"
                 >
-                  <ChevronLeft size={18} /> Prev
+                  <ChevronLeft size={18} /> Sebelumnya
                 </Link>
               )}
               {data.next_episode && (
@@ -89,7 +91,7 @@ export default function WatchPage() {
                   href={`/watch/${data.next_episode}`}
                   className="bg-primary hover:bg-primary/80 px-4 py-3 rounded-xl flex items-center gap-2 font-bold transition-all text-sm orange-glow"
                 >
-                  Next <ChevronRight size={18} />
+                  Berikutnya <ChevronRight size={18} />
                 </Link>
               )}
             </div>
@@ -107,7 +109,7 @@ export default function WatchPage() {
           {/* Server Selection */}
           <div className="glass-panel p-6 rounded-2xl border border-white/5">
             <h3 className="text-white font-bold mb-4 flex items-center gap-2">
-              <Server size={18} className="text-primary" /> Select Server
+              <Server size={18} className="text-primary" /> Pilih Server
             </h3>
             <div className="flex flex-wrap gap-2">
               {data.streaming_servers.map((server, idx) => (
@@ -125,7 +127,7 @@ export default function WatchPage() {
               ))}
             </div>
             <p className="text-[10px] text-white/30 mt-4 italic">
-              *If video doesn't load, try switching servers.
+              *Jika video tidak dimuat, coba ganti server.
             </p>
           </div>
         </div>
@@ -134,7 +136,7 @@ export default function WatchPage() {
         <div className="space-y-6">
           <div className="glass-panel p-6 rounded-2xl border border-white/5">
             <h3 className="text-white font-bold mb-6 flex items-center gap-2">
-              <Download size={18} className="text-primary" /> Download
+              <Download size={18} className="text-primary" /> Unduh
             </h3>
             
             <div className="space-y-6">
@@ -166,10 +168,10 @@ export default function WatchPage() {
 
           <div className="bg-primary/10 border border-primary/20 p-6 rounded-2xl">
             <h4 className="text-primary font-bold text-sm mb-2 flex items-center gap-2">
-              <Info size={16} /> Quick Tip
+              <Info size={16} /> Tips Cepat
             </h4>
             <p className="text-white/60 text-xs leading-relaxed">
-              Use "HD Hemat" or "Pixel HD" for the best experience. Ad-blockers are recommended for third-party players.
+              Gunakan "HD Hemat" atau "Pixel HD" untuk pengalaman terbaik. Pemblokir iklan direkomendasikan untuk pemutar pihak ketiga.
             </p>
           </div>
         </div>

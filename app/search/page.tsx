@@ -20,9 +20,9 @@ export default async function SearchPage({
         <div className="bg-base-300 p-8 rounded-full mb-6">
           <SearchIcon size={48} className="text-white/20" />
         </div>
-        <h2 className="text-2xl font-bold mb-4">Search for your favorite anime</h2>
+        <h2 className="text-2xl font-bold mb-4">Cari anime favorit Anda</h2>
         <p className="text-white/50 text-center max-w-md">
-          Type the title of the anime you want to watch in the search bar above.
+          Ketik judul anime yang ingin Anda tonton pada kolom pencarian di atas.
         </p>
       </div>
     );
@@ -36,11 +36,11 @@ export default async function SearchPage({
         <div className="bg-base-300 p-8 rounded-full mb-6">
           <Frown size={48} className="text-primary/50" />
         </div>
-        <h2 className="text-2xl font-bold mb-4">No results found for "{query}"</h2>
+        <h2 className="text-2xl font-bold mb-4">Hasil tidak ditemukan untuk "{query}"</h2>
         <p className="text-white/50 text-center mb-8">
-          Try different keywords or check for typos.
+          Coba kata kunci lain atau periksa kesalahan ketik.
         </p>
-        <Link href="/" className="btn btn-primary orange-glow">Back to Home</Link>
+        <Link href="/" className="btn btn-primary orange-glow">Kembali ke Beranda</Link>
       </div>
     );
   }
@@ -51,10 +51,10 @@ export default async function SearchPage({
     <div className="container mx-auto px-4 py-12">
       <div className="mb-12">
         <h1 className="text-3xl md:text-4xl font-black text-white mb-4">
-          Search Results
+          Hasil Pencarian
         </h1>
         <p className="text-white/50">
-          Showing results for <span className="text-primary font-bold">"{query}"</span>
+          Menampilkan hasil untuk <span className="text-primary font-bold">"{query}"</span>
         </p>
       </div>
 

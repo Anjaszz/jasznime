@@ -2,6 +2,8 @@ import React from 'react';
 import { getDetail } from '@/lib/api';
 import Link from 'next/link';
 import { Play, Calendar, Star, Clock, User, Share2, Heart, List, Info } from 'lucide-react';
+import HistoryTracker from '@/components/HistoryTracker';
+import FavoriteButton from '@/components/FavoriteButton';
 
 export default async function DetailPage({
   params,
@@ -14,8 +16,8 @@ export default async function DetailPage({
   if (detailData.status !== 'success') {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
-        <p className="text-xl text-white/50">Anime not found or API error.</p>
-        <Link href="/" className="btn btn-primary">Back to Home</Link>
+        <p className="text-xl text-white/50">Anime tidak ditemukan atau terjadi kesalahan API.</p>
+        <Link href="/" className="btn btn-primary">Kembali ke Beranda</Link>
       </div>
     );
   }
@@ -24,6 +26,14 @@ export default async function DetailPage({
 
   return (
     <div className="min-h-screen">
+      <HistoryTracker
+        anime={{
+          slug,
+          title: anime.title,
+          thumbnail: anime.thumbnail,
+          type: anime.info.tipe,
+        }}
+      />
       {/* Backdrop Header */}
       <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-base-100 via-base-100/60 to-transparent z-10" />
@@ -48,11 +58,11 @@ export default async function DetailPage({
                 <span className="text-primary font-bold">{anime.info.status}</span>
               </div>
               <div className="flex justify-between border-b border-white/5 pb-2">
-                <span className="text-white/50">Type</span>
+                <span className="text-white/50">Tipe</span>
                 <span className="text-white font-medium">{anime.info.tipe}</span>
               </div>
               <div className="flex justify-between border-b border-white/5 pb-2">
-                <span className="text-white/50">Episodes</span>
+                <span className="text-white/50">Episode</span>
                 <span className="text-white font-medium">{anime.info.total_episode}</span>
               </div>
               <div className="flex justify-between border-b border-white/5 pb-2">
@@ -60,7 +70,7 @@ export default async function DetailPage({
                 <span className="text-white font-medium">{anime.info.studio}</span>
               </div>
               <div className="flex justify-between border-b border-white/5 pb-2">
-                <span className="text-white/50">Released</span>
+                <span className="text-white/50">Dirilis</span>
                 <span className="text-white font-medium">{anime.info.dirilis}</span>
               </div>
             </div>
@@ -91,11 +101,16 @@ export default async function DetailPage({
                 href={`/watch/${anime.episodes[0]?.slug}`} 
                 className="bg-primary hover:bg-primary/80 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-all hover:scale-105 orange-glow"
               >
-                <Play size={20} fill="white" /> Watch Episode 1
+                <Play size={20} fill="white" /> Tonton Episode 1
               </Link>
-              <button className="bg-white/5 hover:bg-white/10 p-4 rounded-xl transition-all">
-                <Heart size={24} />
-              </button>
+              <FavoriteButton 
+                anime={{
+                  slug,
+                  title: anime.title,
+                  thumbnail: anime.thumbnail,
+                  type: anime.info.tipe
+                }}
+              />
               <button className="bg-white/5 hover:bg-white/10 p-4 rounded-xl transition-all">
                 <Share2 size={24} />
               </button>
@@ -104,7 +119,7 @@ export default async function DetailPage({
             {/* Synopsis */}
             <div className="glass-panel rounded-3xl p-8 mb-10 border border-white/5">
               <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-primary">
-                <Info size={20} /> Synopsis
+                <Info size={20} /> Sinopsis
               </h2>
               <p className="text-white/70 leading-relaxed text-sm md:text-base">
                 {anime.synopsis}
@@ -114,7 +129,7 @@ export default async function DetailPage({
             {/* Episode List */}
             <div>
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                Episodes <span className="bg-primary/20 text-primary text-xs px-3 py-1 rounded-full">{(anime.episodes?.length || 0)} Items</span>
+                Episode <span className="bg-primary/20 text-primary text-xs px-3 py-1 rounded-full">{(anime.episodes?.length || 0)} Item</span>
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {anime.episodes?.map((ep) => (

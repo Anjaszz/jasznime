@@ -31,7 +31,7 @@ export default function SchedulePage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[70vh] gap-4">
         <span className="loading loading-spinner loading-lg text-primary"></span>
-        <p className="text-white/50 animate-pulse">Loading schedule...</p>
+        <p className="text-white/50 animate-pulse">Memuat jadwal...</p>
       </div>
     );
   }
@@ -44,13 +44,13 @@ export default function SchedulePage() {
         {/* Header */}
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-xs font-black uppercase tracking-widest border border-primary/20">
-            <Calendar size={14} /> Anime Release Schedule
+            <Calendar size={14} /> Jadwal Rilis Anime
           </div>
           <h1 className="text-4xl md:text-6xl font-black text-white">
-            Daily <span className="text-primary">Updates</span>
+            Pembaruan <span className="text-primary">Harian</span>
           </h1>
           <p className="text-white/40 max-w-lg mx-auto">
-            Never miss an episode. Stay updated with the latest release times for your favorite anime series.
+            Jangan lewatkan satu episode pun. Tetap update dengan waktu rilis terbaru untuk serial anime favorit Anda.
           </p>
         </div>
 
@@ -122,9 +122,9 @@ export default function SchedulePage() {
               <div className="p-6 bg-white/5 rounded-full mb-6">
                 <Info size={48} className="text-white/20" />
               </div>
-              <h2 className="text-2xl font-bold text-white mb-2">No Schedule Found</h2>
+              <h2 className="text-2xl font-bold text-white mb-2">Jadwal Tidak Ditemukan</h2>
               <p className="text-white/40 max-w-xs">
-                There are no anime releases scheduled for {activeDay} yet. Please check back later!
+                Belum ada jadwal rilis anime untuk hari {activeDay}. Silakan periksa kembali nanti!
               </p>
             </div>
           )}

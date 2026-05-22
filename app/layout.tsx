@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
-      <body className={`${inter.className} antialiased bg-base-100 text-white min-h-screen flex flex-col`}>
+    <html lang="id" data-theme="dark" suppressHydrationWarning>
+      <body className={`${inter.className} antialiased bg-base-100 text-white min-h-screen flex flex-col`} suppressHydrationWarning>
         <Suspense>
           <ProgressBar />
         </Suspense>

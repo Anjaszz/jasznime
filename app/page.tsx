@@ -17,7 +17,7 @@ export default async function HomePage({
   if (homeData.status !== 'success') {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <p className="text-xl text-white/50">Failed to load anime data.</p>
+        <p className="text-xl text-white/50">Gagal memuat data anime.</p>
       </div>
     );
   }
@@ -37,20 +37,20 @@ export default async function HomePage({
         <div className="relative z-20 p-8 md:p-16 max-w-2xl">
           <div className="flex items-center gap-2 text-primary font-bold mb-4 animate-bounce">
             <Sparkles size={20} />
-            <span className="uppercase tracking-widest text-xs md:text-sm">Featured Seasonal Anime</span>
+            <span className="uppercase tracking-widest text-xs md:text-sm">Anime Musiman Unggulan</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-            Dive into <span className="text-primary">Limitless</span> Adventures
+            Jelajahi Petualangan <span className="text-primary">Tanpa Batas</span>
           </h1>
           <p className="text-white/70 text-sm md:text-lg mb-8 line-clamp-3">
-            Stream the latest and greatest anime titles with crystal clear quality and seamless subtitle integration. Your anime journey starts here.
+            Streaming judul anime terbaru dan terbaik dengan kualitas jernih dan integrasi subtitle yang mulus. Perjalanan anime Anda dimulai di sini.
           </p>
           <div className="flex flex-wrap gap-4">
             <button className="bg-primary hover:bg-primary/80 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-all hover:scale-105 orange-glow">
-              <Play size={20} fill="white" /> Watch Now
+              <Play size={20} fill="white" /> Tonton Sekarang
             </button>
             <button className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold transition-all">
-              Learn More
+              Pelajari Selengkapnya
             </button>
           </div>
         </div>
@@ -61,13 +61,11 @@ export default async function HomePage({
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
-              Latest Updates <div className="h-1 w-12 bg-primary rounded-full" />
+              Pembaruan Terbaru <div className="h-1 w-12 bg-primary rounded-full" />
             </h2>
-            <p className="text-white/50 text-sm mt-1">Recently added episodes and series</p>
+            <p className="text-white/50 text-sm mt-1">Episode dan serial yang baru ditambahkan</p>
           </div>
-          <Link href="/latest" className="text-primary hover:text-primary/80 font-bold flex items-center gap-1 group">
-            View All <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+          
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">

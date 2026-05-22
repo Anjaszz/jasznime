@@ -22,7 +22,7 @@ export default async function GenresPage({
   }
 
   if (genresData.status !== 'success') {
-    return <div className="p-20 text-center">Failed to load genres.</div>;
+    return <div className="p-20 text-center">Gagal memuat genre.</div>;
   }
 
   return (
@@ -32,7 +32,7 @@ export default async function GenresPage({
         <div className="w-full lg:w-80 shrink-0">
           <div className="glass-panel rounded-3xl p-6 sticky top-24 border border-white/5">
             <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
-              <List size={20} className="text-primary" /> Genres
+              <List size={20} className="text-primary" /> Genre
             </h2>
             
             {/* Scrollable list inside sidebar */}
@@ -68,9 +68,9 @@ export default async function GenresPage({
               <div className="bg-primary/20 p-8 rounded-full mb-6">
                 <List size={48} className="text-primary" />
               </div>
-              <h2 className="text-3xl font-black mb-4">Select a Genre</h2>
+              <h2 className="text-3xl font-black mb-4">Pilih Genre</h2>
               <p className="text-white/40 max-w-sm">
-                Choose a genre from the list to explore our vast collection of anime.
+                Pilih genre dari daftar untuk menjelajahi koleksi anime kami.
               </p>
             </div>
           ) : (
@@ -80,7 +80,7 @@ export default async function GenresPage({
                   <h1 className="text-3xl font-black text-white capitalize">
                     {selectedGenre.replace('-', ' ')}
                   </h1>
-                  <p className="text-white/40 text-sm mt-1">Explore anime in this category</p>
+                  <p className="text-white/40 text-sm mt-1">Jelajahi anime dalam kategori ini</p>
                 </div>
                 <div className="bg-primary/20 text-primary text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
                   {selectedGenre}
@@ -105,7 +105,7 @@ export default async function GenresPage({
                 </>
               ) : (
                 <div className="p-20 text-center glass-panel rounded-3xl">
-                  <p className="text-white/50">No anime found in this genre.</p>
+                  <p className="text-white/50">Tidak ada anime yang ditemukan dalam genre ini.</p>
                 </div>
               )}
             </div>
